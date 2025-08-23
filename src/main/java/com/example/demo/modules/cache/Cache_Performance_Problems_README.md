@@ -13,6 +13,11 @@ The cache module focuses on identifying and solving performance issues related t
 **Description**: Each new object instance generates different hashCode, causing cache misses
 **Solution**: Proper key generation using object fields instead of object instances
 
+### 2. generatekey/timestampmismatch
+**Problem**: Timestamp inconsistency when using timestamps in cache keys
+**Description**: Each call generates different timestamp, causing cache misses
+**Solution**: Timestamp-free keys or time-bucketed caching
+
 ## Future Sub-Modules to be Added
 
 ### generatekey/ category:
