@@ -24,16 +24,16 @@ public class ConsistentOrderingController {
             # Cache Key Consistent Ordering Problem
             
             ## Problem
-            HashSet'in sırası garanti olmadığı için cache key'lerde tutarsızlık yaşanır.
-            Aynı parametreler farklı sıralarda cache key'e dönüştürüldüklerinde farklı sonuçlar üretir.
+            Since HashSet doesn't guarantee ordering, cache keys become inconsistent.
+            Same parameters converted to cache keys in different orders produce different results.
             
             ## Demonstration
-            1. PROBLEM: Set<String> params = new HashSet<>(); // sıra garanti değil
+            1. PROBLEM: Set<String> params = new HashSet<>(); // order not guaranteed
                        String key = String.join("_", params);
             2. SOLUTION 1: List<String> sortedParams = new ArrayList<>(params);
                           Collections.sort(sortedParams);
                           String key = String.join("_", sortedParams);
-            3. SOLUTION 2: TreeSet<String> sortedParams = new TreeSet<>(params); // otomatik sıralama
+            3. SOLUTION 2: TreeSet<String> sortedParams = new TreeSet<>(params); // automatic ordering
             
             ## Test Endpoints
             - POST /api/cache/generatekey/consistentordering/search/ordering-problem

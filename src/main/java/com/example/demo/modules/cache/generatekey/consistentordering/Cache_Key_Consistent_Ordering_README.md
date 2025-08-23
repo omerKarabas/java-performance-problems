@@ -2,14 +2,14 @@
 
 ## Problem Description
 
-HashSet'in sırası garanti olmadığı için cache key generation'da tutarsızlık problemi yaşanır. Aynı parametreler farklı sıralarda cache key'e dönüştürüldüklerinde farklı sonuçlar üretir.
+Since HashSet doesn't guarantee ordering, inconsistency problems occur in cache key generation. Same parameters converted to cache keys in different orders produce different results.
 
 ### The Ordering Issue
 
-HashSet kullanıldığında sıralama garanti değildir:
+When using HashSet, ordering is not guaranteed:
 
 ```java
-// PROBLEM: Sıralama tutarsızlığı
+// PROBLEM: Ordering inconsistency
 Set<String> params = new HashSet<>();
 params.add("category");
 params.add("brand");
@@ -23,18 +23,18 @@ params2.add("region");
 String key2 = String.join("_", params2);   // Result: "brandcategoryregion" - DIFFERENT!
 ```
 
-Aynı parametreler farklı cache key'ler ürettiği için:
-- Cache miss'ler gereksiz yere oluşur
-- Aynı veri için farklı cache entry'leri oluşur
-- Cache performansı düşer
-- Inconsistent uygulama davranışı
+Since same parameters produce different cache keys:
+- Unnecessary cache misses occur
+- Different cache entries are created for the same data
+- Cache performance degrades
+- Inconsistent application behavior
 
 ## Solutions
 
 ### Solution 1: Manual Sorting
 
 ```java
-// SOLUTION: Collections.sort() kullanarak sıralama
+// SOLUTION: Sorting using Collections.sort()
 Set<String> params = new HashSet<>();
 params.add("category");
 params.add("brand");
@@ -48,7 +48,7 @@ String key = String.join("_", sortedParams);    // Always: "brand_category_regio
 ### Solution 2: TreeSet Automatic Ordering
 
 ```java
-// ALTERNATIVE: TreeSet otomatik sıralama yapar
+// ALTERNATIVE: TreeSet provides automatic sorting
 Set<String> params = new HashSet<>();
 params.add("category");
 params.add("brand");
