@@ -8,8 +8,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Slf4j
 @SpringBootApplication
-@EntityScan("com.example.demo.modules.cache")
-@EnableJpaRepositories("com.example.demo.modules.cache")
+@EntityScan({"com.example.demo.modules.cache", "com.example.demo.modules.nplusone"})
+@EnableJpaRepositories({"com.example.demo.modules.cache", "com.example.demo.modules.nplusone"})
 public class JavaPerformanceProblemsApplication {
 
 	public static void main(String[] args) {

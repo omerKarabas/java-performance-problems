@@ -1,9 +1,10 @@
 -- Create tables for N+1 Query Disaster demonstration
 -- This migration creates the necessary schema and test data to demonstrate
 -- the N+1 query problem and its solutions
+-- Tables are prefixed with 'nplusone_' to avoid conflicts with other modules
 
 -- Create users table
-CREATE TABLE users (
+CREATE TABLE nplusone_users (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL
@@ -11,17 +12,17 @@ CREATE TABLE users (
 
 -- Create orders table with foreign key relationship
 -- This relationship will be used to demonstrate N+1 problem
-CREATE TABLE orders (
+CREATE TABLE nplusone_orders (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     order_number VARCHAR(255) NOT NULL,
     amount DECIMAL(10,2) NOT NULL,
-    user_id BIGINT NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users(id)
+    nplusone_user_id BIGINT NOT NULL,
+    FOREIGN KEY (nplusone_user_id) REFERENCES nplusone_users(id)
 );
 
 -- Insert test users for N+1 demonstration
 -- 10 users will be created to show the problem clearly
-INSERT INTO users (username, email) VALUES
+INSERT INTO nplusone_users (username, email) VALUES
 ('user1', 'user1@example.com'),
 ('user2', 'user2@example.com'),
 ('user3', 'user3@example.com'),
@@ -36,7 +37,7 @@ INSERT INTO users (username, email) VALUES
 -- Insert test orders to demonstrate N+1 problem
 -- Each user has 3-6 orders to show the relationship loading issue
 -- This will create the scenario: 1 query for users + N queries for orders
-INSERT INTO orders (order_number, amount, user_id) VALUES
+INSERT INTO nplusone_orders (order_number, amount, nplusone_user_id) VALUES
 ('ORD-1-1', 125.50, 1),
 ('ORD-1-2', 89.99, 1),
 ('ORD-1-3', 456.78, 1),
