@@ -1,6 +1,6 @@
 package com.example.demo.modules.nplusone.infrastructure.service.impl;
 
-import com.example.demo.modules.nplusone.entity.NPlusOneOrder;
+import com.example.demo.modules.nplusone.domain.entity.NPlusOneOrder;
 import com.example.demo.modules.nplusone.infrastructure.repository.NPlusOneOrderRepository;
 import com.example.demo.modules.nplusone.infrastructure.service.NPlusOneOrderService;
 import lombok.RequiredArgsConstructor;

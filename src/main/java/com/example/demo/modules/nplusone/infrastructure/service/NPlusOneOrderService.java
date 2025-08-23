@@ -1,6 +1,6 @@
 package com.example.demo.modules.nplusone.infrastructure.service;
 
-import com.example.demo.modules.nplusone.entity.NPlusOneOrder;
+import com.example.demo.modules.nplusone.domain.entity.NPlusOneOrder;
 
 import java.util.List;
 

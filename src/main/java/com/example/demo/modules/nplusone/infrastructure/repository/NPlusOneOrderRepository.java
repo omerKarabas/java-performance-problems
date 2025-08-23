@@ -1,6 +1,6 @@
 package com.example.demo.modules.nplusone.infrastructure.repository;
 
-import com.example.demo.modules.nplusone.entity.NPlusOneOrder;
+import com.example.demo.modules.nplusone.domain.entity.NPlusOneOrder;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

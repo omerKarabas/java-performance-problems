@@ -2,7 +2,8 @@ package com.example.demo.modules.nplusone.infrastructure.service.impl;
 
 import com.example.demo.modules.nplusone.api.dto.NPlusOneUserDTO;
 import com.example.demo.modules.nplusone.api.mapper.NPlusOneUserMapper;
-import com.example.demo.modules.nplusone.entity.NPlusOneUser;
+import com.example.demo.modules.nplusone.domain.entity.NPlusOneUser;
+import com.example.demo.modules.nplusone.domain.entity.NPlusOneOrder;
 import com.example.demo.modules.nplusone.infrastructure.repository.NPlusOneUserRepository;
 import com.example.demo.modules.nplusone.infrastructure.service.NPlusOneUserService;
 import com.example.demo.modules.nplusone.infrastructure.service.NPlusOneOrderService;
@@ -30,7 +31,8 @@ public class NPlusOneUserServiceImpl implements NPlusOneUserService {
         return users.stream()
                 .map(user -> {
                     // This will trigger a separate query for each user
-                    user.getOrders().size(); // Force lazy loading
+                    List<NPlusOneOrder> userOrders = orderService.getOrdersByUserId(user.getId());
+                    user.setOrders(userOrders);
                     return userMapper.toDTO(user);
                 })
                 .collect(Collectors.toList());

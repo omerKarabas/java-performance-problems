@@ -1,9 +1,10 @@
 package com.example.demo.modules.nplusone.infrastructure.repository;
 
-import com.example.demo.modules.nplusone.entity.NPlusOneUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+
+import com.example.demo.modules.nplusone.domain.entity.NPlusOneUser;
 
 import java.util.List;
 

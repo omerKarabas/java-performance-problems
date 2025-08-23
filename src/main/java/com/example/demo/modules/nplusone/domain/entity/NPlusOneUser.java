@@ -1,4 +1,4 @@
-package com.example.demo.modules.nplusone.entity;
+package com.example.demo.modules.nplusone.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
