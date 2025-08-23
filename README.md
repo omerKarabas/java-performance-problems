@@ -9,6 +9,11 @@ This project is created to demonstrate and solve common performance problems enc
 **Documentation**: `N+1_Query_Disaster_README.md`
 **Description**: Demonstrates and solves the N+1 performance problem in database queries.
 
+### 2. Cache Performance Problems
+**Module**: `cache/`
+**Documentation**: `Cache_Performance_Problems_README.md`
+**Description**: Demonstrates and solves cache-related performance problems including key generation issues.
+
 **Future Modules to be Added**:
 - Memory Leaks
 - Thread Pool Issues
