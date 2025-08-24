@@ -17,8 +17,8 @@ CREATE TABLE case_sensitivity_user (
 CREATE INDEX idx_case_sensitive_search ON case_sensitivity_user(user_name, category, region);
 
 -- Create index for case-insensitive queries (part of the solution)
--- Note: This is MySQL syntax. For other databases, adjust accordingly.
-CREATE INDEX idx_case_insensitive_search ON case_sensitivity_user(user_name(191), category(191), region(100));
+-- Note: H2 database compatible syntax
+CREATE INDEX idx_case_insensitive_search ON case_sensitivity_user(user_name, category, region);
 
 -- Insert sample data with different case variations to demonstrate the problem
 INSERT INTO case_sensitivity_user (user_name, category, description, region) VALUES
